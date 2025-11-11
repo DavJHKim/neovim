@@ -7,6 +7,13 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', { desc = 'Telescope References'})
+vim.keymap.set('n', '<leader>fc', function()
+  require('telescope.builtin').find_files({
+    prompt_title = "Neovim Config",
+    cwd = vim.fn.stdpath('config'), 
+  })
+end, { desc = "Search Neovim Config" })
 
 -- Enable syntax highlighting
 vim.cmd("syntax on")
