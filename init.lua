@@ -1,27 +1,21 @@
 -- Lazy 
 require("config.lazy") 
-
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', { desc = 'Telescope References'})
-vim.keymap.set('n', '<leader>fc', function()
-  require('telescope.builtin').find_files({
-    prompt_title = "Neovim Config",
-    cwd = vim.fn.stdpath('config'), 
-  })
-end, { desc = "Search Neovim Config" })
+require("config.keymaps")
 
 -- Enable syntax highlighting
 vim.cmd("syntax on")
+vim.cmd("colorscheme catppuccin")
 
 -- Search settings
 vim.opt.ignorecase = true -- set ic
 vim.opt.incsearch = true -- set is
 vim.opt.hlsearch = true -- set hlsearch
+
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true
+  }
+})
 
 -- Line numbers 
 vim.cmd("set number relativenumber")
@@ -37,7 +31,7 @@ vim.cmd([[
 ]])
 
 -- Indentation 
-vim.opt.tabstop = 2 
-vim.opt.shiftwidth = 2 
+vim.opt.tabstop = 4 
+vim.opt.shiftwidth = 4 
 vim.opt.expandtab = true
 

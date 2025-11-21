@@ -16,22 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
-vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true })
 
 require("lazy").setup({
   spec = {
     {
       "ellisonleao/gruvbox.nvim",
       priority = 1000, -- Ensure it loads before other plugins that might set colorschemes
-      config = function()
-        vim.cmd.colorscheme "gruvbox"
-        -- Optional: Add any gruvbox.nvim setup options here
-        -- require("gruvbox").setup({
-        --   terminal_colors = true,
-        --   contrast = "soft",
-        -- })
-      end,
     },
     { import = "plugins"},
   },
