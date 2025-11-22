@@ -8,6 +8,17 @@ return {
         section_separators = "",
         component_separators = "",
       },
+      sections = {
+        lualine_z = {
+          {
+            function()
+              return os.date("%H:%M") -- 24-hour time
+            end,
+            icon = "", -- optional icon
+          },
+          "location",
+        },
+      },
     })
   end,
 }
